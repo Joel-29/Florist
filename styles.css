@@ -23,6 +23,10 @@
     --text-primary: #2c2c2c;
     --text-secondary: #5a5a5a;
     --text-light: #8a8a8a;
+
+    /* Common colors used in components */
+    --black: #000000;
+    --purple: #6a0dad;
     
     --white: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.15);
