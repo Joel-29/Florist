@@ -12,6 +12,11 @@
       "src": "images/dbmNS45xQvD1diApY1T2HExvOo8.jpg",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "categories": ["shopping", "flowers"]
