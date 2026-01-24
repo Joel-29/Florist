@@ -65,7 +65,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    background: linear-gradient(180deg, #e0f4ff 0%, #ffe6f2 30%, #fff4cc 60%, #d4c4e8 100%);
+    background-color: brown;
     position: relative;
 }
 
