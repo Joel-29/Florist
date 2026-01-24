@@ -13,12 +13,12 @@
     {
       "src": "https://www.gardenia.net/wp-content/uploads/2023/05/types-of-flowers-780x520.webp",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/webp"
     },
     {
       "src": "https://www.gardenia.net/wp-content/uploads/2023/05/types-of-flowers-780x520.webp",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp"
     }
   ],
   "categories": ["shopping", "flowers"]
