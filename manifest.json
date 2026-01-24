@@ -1,9 +1,10 @@
 {
-  "name": "My PWA",
-  "short_name": "PWA",
+  "name": "Blossom Gardens",
+  "short_name": "Blossom",
   "description": "Beautiful florist - Fresh flowers for every occasion",
-  "start_url": "/Florist/",
-  "scope": "/Florist/",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
@@ -12,7 +13,7 @@
     {
       "src": "images/dbmNS45xQvD1diApY1T2HExvOo8.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
       "src": "images/icon-512x512.png",

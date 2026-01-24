@@ -1,13 +1,16 @@
 // Service Worker for Blossom PWA
 const CACHE_NAME = 'blossom-v1';
-const assets = ['index.html', 'styles.css', 'app.js', 'manifest.json'];
+const assets = ['./', './index.html', './styles.css', './app.js', './manifest.json'];
+const INDEX_FALLBACK_URL = new URL('./index.html', self.location.href).toString();
 
 self.addEventListener('install', event => {
     console.log('Service Worker installing...');
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
             console.log('Cache opened');
-            return cache.addAll(assets).catch(() => {});
+            return cache.addAll(assets).catch((err) => {
+                console.warn('Precache failed:', err);
+            });
         })
     );
     self.skipWaiting();
@@ -69,12 +72,12 @@ self.addEventListener('fetch', event => {
                     .catch(error => {
                         console.error('Fetch failed:', error);
                         // Return cached index.html as fallback for offline
-                        return caches.match('index.html');
+                        return caches.match(INDEX_FALLBACK_URL);
                     });
             })
             .catch(error => {
                 console.error('Cache match failed:', error);
-                return caches.match('index.html');
+                return caches.match(INDEX_FALLBACK_URL);
             })
     );
 });
@@ -118,12 +121,12 @@ self.addEventListener('notificationclick', event => {
     event.waitUntil(
         clients.matchAll({ type: 'window' }).then(clientList => {
             for (let client of clientList) {
-                if (client.url === '/' && 'focus' in client) {
+                if (client.url === INDEX_FALLBACK_URL && 'focus' in client) {
                     return client.focus();
                 }
             }
             if (clients.openWindow) {
-                return clients.openWindow('/');
+                return clients.openWindow(INDEX_FALLBACK_URL);
             }
         })
     );
