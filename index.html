@@ -48,6 +48,10 @@
                 <li><a href="#arrangements" class="nav-link">Arrangements</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
             </ul>
+            <button class="cart-toggle" id="cartToggle" aria-label="Shopping cart">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -80,7 +84,7 @@
                     <h3 class="card-title">Classic Roses</h3>
                     <p class="card-text">Timeless elegance with our premium rose bouquets. Perfect for expressing love, gratitude, or celebration.</p>
                     <div class="card-price">From $45</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Classic Roses" data-price="45" data-icon="🌹">Add to Cart</button>
                 </div>
 
                 <div class="glass-card">
@@ -88,7 +92,7 @@
                     <h3 class="card-title">Tropical Paradise</h3>
                     <p class="card-text">Vibrant tropical flowers that bring exotic beauty and warmth to any space. Bright, bold, and beautiful.</p>
                     <div class="card-price">From $55</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Tropical Paradise" data-price="55" data-icon="🌺">Add to Cart</button>
                 </div>
 
                 <div class="glass-card">
@@ -96,15 +100,14 @@
                     <h3 class="card-title">Sunshine Bouquet</h3>
                     <p class="card-text">Cheerful sunflowers and bright blooms that radiate happiness and bring sunshine to your day.</p>
                     <div class="card-price">From $40</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Sunshine Bouquet" data-price="40" data-icon="🌻">Add to Cart</button>
                 </div>
-
                 <div class="glass-card">
                     <div class="card-icon">🌷</div>
                     <h3 class="card-title">Spring Garden</h3>
                     <p class="card-text">Fresh spring blooms in soft pastels. Delicate tulips, daisies, and peonies create a dreamy arrangement.</p>
                     <div class="card-price">From $50</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Spring Garden" data-price="50" data-icon="🌷">Add to Cart</button>
                 </div>
 
                 <div class="glass-card">
@@ -112,7 +115,7 @@
                     <h3 class="card-title">Wildflower Mix</h3>
                     <p class="card-text">A charming mix of wildflowers that captures the essence of a meadow in full bloom. Natural and free-spirited.</p>
                     <div class="card-price">From $35</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Wildflower Mix" data-price="35" data-icon="🌼">Add to Cart</button>
                 </div>
 
                 <div class="glass-card">
@@ -120,7 +123,7 @@
                     <h3 class="card-title">Premium Collection</h3>
                     <p class="card-text">Our most luxurious arrangements featuring rare blooms and premium flowers. Perfect for the most special occasions.</p>
                     <div class="card-price">From $85</div>
-                    <a href="#" class="card-link">View Collection →</a>
+                    <button class="btn-add-to-cart" data-name="Premium Collection" data-price="85" data-icon="🌹">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -138,7 +141,8 @@
                     <div class="arrangement-info">
                         <h3>Wedding Bouquets</h3>
                         <p>Elegant designs that complement your special day. Custom arrangements tailored to your wedding theme and colors.</p>
-                        <div class="arrangement-price">Custom Pricing</div>
+                        <div class="arrangement-price">From $150</div>
+                        <button class="btn-add-to-cart" data-name="Wedding Bouquets" data-price="150" data-icon="💐">Add to Cart</button>
                     </div>
                 </div>
 
@@ -148,6 +152,7 @@
                         <h3>Centerpieces</h3>
                         <p>Stunning table centerpieces that become the focal point of your event. Available in various sizes and styles.</p>
                         <div class="arrangement-price">From $75</div>
+                        <button class="btn-add-to-cart" data-name="Centerpieces" data-price="75" data-icon="🏺">Add to Cart</button>
                     </div>
                 </div>
 
@@ -157,6 +162,7 @@
                         <h3>Gift Arrangements</h3>
                         <p>Thoughtful floral gifts that show you care. Perfect for birthdays, anniversaries, or just because.</p>
                         <div class="arrangement-price">From $45</div>
+                        <button class="btn-add-to-cart" data-name="Gift Arrangements" data-price="45" data-icon="🎁">Add to Cart</button>
                     </div>
                 </div>
 
@@ -165,7 +171,8 @@
                     <div class="arrangement-info">
                         <h3>Corporate Events</h3>
                         <p>Professional arrangements for offices and corporate events. Fresh flowers that enhance any business environment.</p>
-                        <div class="arrangement-price">Custom Pricing</div>
+                        <div class="arrangement-price">From $200</div>
+                        <button class="btn-add-to-cart" data-name="Corporate Events" data-price="200" data-icon="🏢">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -221,6 +228,69 @@
             </div>
         </div>
     </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="totalAmount">$0.00</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <button class="modal-close" id="modalClose" aria-label="Close checkout">&times;</button>
+            <h2>Checkout</h2>
+            <form id="checkoutForm" class="checkout-form">
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <input type="text" id="customerName" placeholder="Full Name" required>
+                    <input type="email" id="customerEmail" placeholder="Email Address" required>
+                    <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-section">
+                    <h3>Delivery Address</h3>
+                    <input type="text" id="address" placeholder="Street Address" required>
+                    <input type="text" id="city" placeholder="City" required>
+                    <div class="form-row">
+                        <input type="text" id="state" placeholder="State" required>
+                        <input type="text" id="zip" placeholder="ZIP Code" required>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Payment Details</h3>
+                    <input type="text" id="cardNumber" placeholder="Card Number" pattern="[0-9]{16}" maxlength="16" required>
+                    <div class="form-row">
+                        <input type="text" id="expiry" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" maxlength="5" required>
+                        <input type="text" id="cvv" placeholder="CVV" pattern="[0-9]{3}" maxlength="3" required>
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkoutItems"></div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="checkoutTotal">$0.00</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-order">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
